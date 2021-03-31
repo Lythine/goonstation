@@ -558,7 +558,8 @@
 
 		checkRequirements(atom/target, mob/user)
 			var/obj/machinery/vehicle/V = target
-			. = ((user.loc != target) && BOARD_DIST_ALLOWED(user,V) && user.equipped() == null && !isAI(user))
+			if (!istype(V, /obj/machinery/vehicle/escape_pod))
+				. = ((user.loc != target) && BOARD_DIST_ALLOWED(user,V) && user.equipped() == null && !isAI(user))
 
 		execute(atom/target, mob/user)
 			..()
@@ -791,7 +792,7 @@
 	name = "Card action"
 	desc = "You shouldn't be reading this, bug."
 	icon_state = "wrench"
-	
+
 	checkRequirements(var/atom/target, var/mob/user)
 		return TRUE
 

@@ -1753,6 +1753,7 @@ var/datum/preMapLoad/preMapLoad = new
 #include "code\z_adventurezones\precursor.dm"
 #include "code\z_adventurezones\sequestered_cloner.dm"
 #include "code\z_adventurezones\solarium.dm"
+#include "code\z_adventurezones\spacevegas.dm"
 #include "code\z_adventurezones\sunken.dm"
 #include "code\z_adventurezones\timeship.dm"
 #include "code\z_adventurezones\vault.dm"

@@ -25295,6 +25295,165 @@
 /obj/item/reagent_containers/food/snacks/breakfast,
 /turf/simulated/floor/caution/west,
 /area/mining/quarters)
+"bWp" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/floatingtiles{
+	icon_state = "floattiles5"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"ciL" = (
+/obj/lattice{
+	dir = 6;
+	icon_state = "lattice-dir"
+	},
+/obj/decal/fakeobjects/pipe{
+	dir = 1;
+	name = "grimy pipe"
+	},
+/turf/space,
+/area/abandonedship)
+"cpF" = (
+/obj/decal/floatingtiles{
+	dir = 4;
+	icon_state = "floattiles4"
+	},
+/turf/space,
+/area/abandonedship)
+"cxV" = (
+/obj/stool/chair/office/red{
+	dir = 1
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"cAE" = (
+/obj/decal/floatingtiles{
+	icon_state = "floattiles6"
+	},
+/turf/simulated/floor/airless/plating/damaged3,
+/area/abandonedship)
+"cVj" = (
+/obj/structure/brokentaxipod,
+/turf/simulated/floor/shuttlebay,
+/area/abandonedship)
+"ddi" = (
+/turf/simulated/floor/airless/damaged1,
+/area/abandonedship)
+"dqu" = (
+/turf/simulated/floor/airless/damaged2,
+/area/abandonedship)
+"fHg" = (
+/obj/machinery/door/poddoor/blast/pyro{
+	autoclose = 1;
+	dir = 4;
+	icon_state = "bdoormid1"
+	},
+/turf/space,
+/area/abandonedship)
+"fPk" = (
+/obj/decal/floatingtiles{
+	dir = 4;
+	icon_state = "floattiles4"
+	},
+/obj/decal/fakeobjects/shuttlethruster,
+/turf/space,
+/area/abandonedship)
+"fYW" = (
+/obj/decal/floatingtiles{
+	icon_state = "floattiles2"
+	},
+/turf/simulated/floor/airless/plating/damaged1,
+/area/abandonedship)
+"gIF" = (
+/obj/decal/floatingtiles,
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"hvz" = (
+/obj/storage/crate,
+/obj/item/taxipodengine,
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"jhC" = (
+/obj/decal/floatingtiles{
+	icon_state = "floattiles3"
+	},
+/turf/simulated/floor/airless/plating/damaged3,
+/area/abandonedship)
+"jNZ" = (
+/turf/simulated/floor/airless/damaged4,
+/area/abandonedship)
+"jTj" = (
+/obj/wingrille_spawn,
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"jZO" = (
+/obj/decal/cleanable/dirt,
+/obj/machinery/door/airlock/classic{
+	name = "rusty airlock"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"kjE" = (
+/turf/simulated/floor/shuttlebay,
+/area/abandonedship)
+"kwO" = (
+/obj/machinery/door/poddoor/blast/pyro{
+	autoclose = 1;
+	dir = 4;
+	icon_state = "bdoormid1"
+	},
+/turf/simulated/floor/shuttlebay,
+/area/abandonedship)
+"lMO" = (
+/obj/decal/floatingtiles{
+	dir = 8;
+	icon_state = "floattiles3"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"mxI" = (
+/obj/lattice{
+	dir = 10;
+	icon_state = "lattice-dir"
+	},
+/obj/decal/fakeobjects/pipe{
+	dir = 4;
+	name = "grimy pipe";
+	pixel_y = -6
+	},
+/turf/space,
+/area/abandonedship)
+"mCR" = (
+/obj/decal/fakeobjects/shuttlethruster,
+/turf/space{
+	icon_state = "aplaceholder"
+	},
+/area/abandonedship)
+"nhY" = (
+/obj/item/raw_material/shard/glass,
+/obj/captain_bottleship,
+/turf/space,
+/area/space)
+"otu" = (
+/obj/lattice{
+	icon_state = "lattice-dir"
+	},
+/obj/decal/fakeobjects/pipe{
+	dir = 1;
+	name = "grimy pipe"
+	},
+/obj/decal/floatingtiles{
+	dir = 4;
+	icon_state = "floattiles4"
+	},
+/turf/space,
+/area/abandonedship)
+"oBc" = (
+/obj/machinery/door/airlock/classic{
+	name = "rusty airlock"
+	},
+/turf/simulated/floor/airless/plating/damaged1,
+/area/abandonedship)
 "qBE" = (
 /obj/lattice{
 	dir = 1;
@@ -25321,6 +25480,57 @@
 	stone_color = "#575A5E"
 	},
 /area/space)
+"rSy" = (
+/obj/decal/floatingtiles{
+	icon_state = "floattiles3"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"rUV" = (
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"rYH" = (
+/obj/decal/cleanable/dirt,
+/obj/computerframe{
+	anchored = 1;
+	desc = "It is highly unlikely that this still works.";
+	icon = 'icons/obj/computer.dmi';
+	icon_state = "datamedb";
+	name = "smashed computer"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"smD" = (
+/obj/lattice{
+	dir = 1;
+	icon_state = "lattice-dir-b"
+	},
+/obj/decal/cleanable/dirt,
+/turf/space,
+/area/abandonedship)
+"srq" = (
+/obj/lattice{
+	dir = 8;
+	icon_state = "lattice-dir"
+	},
+/obj/decal/fakeobjects/pipe{
+	dir = 4;
+	name = "grimy pipe";
+	pixel_y = -6
+	},
+/turf/space,
+/area/abandonedship)
+"sCl" = (
+/obj/decal/floatingtiles{
+	dir = 4;
+	icon_state = "floattiles4"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"udT" = (
+/obj/decal/floatingtiles,
+/turf/space,
+/area/space)
 "uGt" = (
 /obj/item/storage/secure/ssafe{
 	configure_mode = 0;
@@ -25337,11 +25547,47 @@
 /obj/stool/chair,
 /turf/simulated/floor/black,
 /area/mining/quarters)
+"wHM" = (
+/obj/decal/cleanable/eggsplat,
+/obj/decal/skeleton{
+	desc = "Rest in peace.";
+	icon = 'icons/misc/hstation.dmi';
+	icon_state = "body8";
+	name = "dead pilot"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"wZY" = (
+/obj/decal/cleanable/dirt,
+/obj/decal/floatingtiles{
+	dir = 8;
+	icon_state = "floattiles3"
+	},
+/turf/simulated/floor/airless/damaged3,
+/area/abandonedship)
 "xOl" = (
 /turf/simulated/floor/plating/airless/asteroid{
 	stone_color = "#D1E6FF"
 	},
 /area/space)
+"xOx" = (
+/obj/machinery/door/airlock/classic{
+	name = "rusty airlock"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
+"xOP" = (
+/obj/decal/floatingtiles{
+	dir = 1
+	},
+/turf/simulated/floor/airless/plating/damaged3,
+/area/abandonedship)
+"xSa" = (
+/obj/decal/floatingtiles{
+	icon_state = "floattiles2"
+	},
+/turf/simulated/floor/airless/plating/scorched,
+/area/abandonedship)
 
 (1,1,1) = {"
 aaa
@@ -50876,7 +51122,7 @@ aaa
 aaa
 aaa
 aaa
-aGZ
+nhY
 aaa
 aaa
 aaa
@@ -52750,7 +52996,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aad
 aaa
 aaa
 aaa
@@ -53056,7 +53302,7 @@ aaa
 aaa
 aaa
 aaa
-aad
+aaa
 aaa
 aaa
 aaa
@@ -53351,7 +53597,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+auk
 aaa
 aaa
 aaa
@@ -53656,7 +53902,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aMd
 aaa
 aaa
 aaa
@@ -53951,18 +54197,18 @@ aaa
 aaa
 aaa
 aaa
+aad
 aaa
 aaa
 aaa
 aaa
+ban
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aGv
+fHg
+aGv
 aaa
 aaa
 aaa
@@ -54261,10 +54507,10 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
+udT
+aGv
+kjE
+aGv
 aaa
 aaa
 aaa
@@ -54559,15 +54805,15 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aGt
+cpF
+gIF
+aGv
+xOx
+aGv
+xOx
+aGv
+aGB
 aaa
 aaa
 aaa
@@ -54858,19 +55104,19 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aGt
+aGv
+aGv
+aGv
+beT
+aMo
+aLW
+ciL
+otu
+dqu
+xOP
+aGv
+aGD
 aaa
 aaa
 aaz
@@ -55160,19 +55406,19 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-auk
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+jTj
+hvz
+lMO
+aGv
+aLW
+dqu
+rUV
+rUV
+aIr
+jhC
+ddi
+aGv
+fPk
 aaa
 aaa
 aaa
@@ -55462,18 +55708,18 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+jTj
+rYH
+cxV
+xOx
+sCl
+aJn
+fYW
+aJn
+aMo
+mxI
+dqu
+aGv
 aaa
 aaa
 aaa
@@ -55764,19 +56010,19 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+jTj
+xSa
+wHM
+aGv
+wZY
+aJn
+dqu
+ddi
+aLW
+srq
+smD
+aGv
+aGD
 aaa
 aaa
 aaa
@@ -56066,21 +56312,21 @@ aaa
 aaa
 aaa
 aaa
+aGw
+aGv
+aGv
+aGv
+jNZ
+bWp
+aMo
+rSy
+aJn
+aIr
+cAE
+aGv
+mCR
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aad
-aaa
+aNj
 aaa
 aaa
 aaa
@@ -56371,16 +56617,16 @@ aaa
 aaa
 aaa
 aaa
+aGw
+aGv
+oBc
+aGv
+xOx
+aGv
+jZO
+aGv
+aGC
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaz
-aaz
 aaa
 aaa
 aaa
@@ -56672,17 +56918,17 @@ aaa
 aaa
 aaa
 aaa
+aGT
+aaa
+aGv
+kjE
+aGv
+aaa
+aGv
+cVj
+aGv
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaz
-aaz
 aaa
 aaa
 aaa
@@ -56976,13 +57222,13 @@ aaa
 aaa
 aaa
 aaa
+aGv
+kwO
+aGv
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aGv
+fHg
+aGv
 aaa
 aaa
 aaa
@@ -57839,7 +58085,7 @@ aaa
 aaa
 aaa
 aaa
-aad
+aaa
 aaa
 aaa
 aaa
