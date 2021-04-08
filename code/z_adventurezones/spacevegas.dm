@@ -40,7 +40,7 @@
 	maxhealth = 100
 	speed = 5
 	anchored = 1
-	dir = 4 // todo: not this
+	dir = 4 // todo: not this. also todo: redo pretty much the entire debris field shuttle, have this thing generate a "wormhole portal" that works like a real portal that doesn't disappear so i don't have to do a shitty taxi system for 9 years
 	var/target = null // goes to the pod entry location (in space vegas)
 
 	New()
@@ -129,10 +129,174 @@
 			P.pilot.set_loc(P.loc) // set_loc calls eject on the pod
 
 
-//////////////////////////////// inside of space vegas
+//////////////////////////////// inside of casino shit
 
-/obj/decal/fakeobjects/kitchenspikehuman
-	name = "a meat spike"
-	desc = "You can't make out if there's a monkey or a human on there..."
-	icon = 'icons/obj/kitchen.dmi'
-	icon_state = "spikebloody"
+/area/spacevegas
+	name = "Space Casino"
+	icon_state = "green"
+	force_fullbright = 1
+	sound_environment = 0
+	skip_sims = 0
+
+////////// item slot machine
+
+/obj/submachine/slot_machine_manta/item
+	name = "Item Lottery Machine"
+	desc = "A special type of gambling machine that somehow makes items instead of cash."
+	icon = 'icons/misc/casino.dmi'
+	icon_state = "slots-off"
+	//mats = 40
+	deconstruct_flags = DECON_NONE
+
+	var/list/junktier = list( // junk tier, 60% chance
+		"/obj/item/a_gift/easter",
+		"/obj/item/raw_material/rock",
+		"/obj/item/balloon_animal",
+		"/obj/item/cigpacket",
+		"/obj/item/clothing/shoes/moon",
+		"/obj/item/fish/carp",
+		"/obj/item/instrument/bagpipe",
+		"/obj/item/clothing/under/gimmick/yay"
+	)
+
+	var/list/usefultier = list( // half decent tier, 30% chance
+		"/obj/item/clothing/gloves/yellow",
+		"/obj/item/bat",
+		"/obj/item/reagent_containers/food/snacks/donkpocket/warm",
+		"/obj/item/device/flash",
+		"/obj/item/clothing/glasses/sunglasses",
+		"/obj/vehicle/skateboard"
+	)
+
+	var/list/raretier = list( // rare tier, 7% chance
+		"/obj/item/hand_tele",
+		"/obj/item/baton",
+		"/obj/item/clothing/suit/armor/vest",
+		"/obj/item/device/voltron",
+		"/obj/item/gun/energy/phaser_gun",
+		"/obj/item/clothing/shoes/galoshes"
+	)
+
+	var/list/veryraretier = list( // very rare tier, 1% chance
+		"/obj/item/pipebomb/bomb/syndicate",
+		"/obj/item/card/id/captains_spare",
+		"/obj/item/sword_core",
+		"/obj/item/sword",
+		"/obj/item/storage/belt/wrestling"
+	)
+
+	attack_hand(var/mob/user as mob)
+		src.add_dialog(user)
+		if (!src.scan)
+			var/dat = {"<B>Item Slot Machine</B><BR>
+			<HR><BR>
+			<B>Please insert card!</B><BR>"}
+			user.Browse(dat, "window=slotmachine;size=450x500")
+			onclose(user, "slotmachine")
+		else if (src.working)
+			var/dat = {"<B>Slot Machine</B><BR>
+			<HR><BR>
+			<B>Please wait!</B><BR>"}
+			user.Browse(dat, "window=slotmachine;size=450x500")
+			onclose(user, "slotmachine")
+		else
+			var/dat = {"<B>Slot Machine</B><BR>
+			<HR><BR>
+			500 credits to play!<BR>
+			<B>Your Card:</B> [src.scan]<BR>
+			<B>Credits Remaining:</B> [src.scan.money]<BR>
+			[src.plays] attempts have been made today!<BR>
+			<HR><BR>
+			<A href='?src=\ref[src];ops=1'>Play!</A><BR>
+			<A href='?src=\ref[src];ops=2'>Eject card</A>"}
+			user.Browse(dat, "window=slotmachine;size=400x500")
+			onclose(user, "slotmachine")
+
+	Topic(href, href_list)
+		if (get_dist(src, usr) > 1 || !isliving(usr) || iswraith(usr) || isintangible(usr))
+			return
+		if (is_incapacitated(usr) || usr.restrained())
+			return
+
+		if(href_list["ops"])
+			var/operation = text2num(href_list["ops"])
+			if(operation == 1) // Play
+				if(src.working) return
+				if(!src.scan) return
+				if (src.scan.money < 20)
+					for(var/mob/O in hearers(src, null))
+						O.show_message(text("<span class='subtle'><b>[]</b> says, 'Insufficient money to play!'</span>", src), 1)
+					return
+				src.scan.money -= 500
+				src.plays++
+				src.working = 1
+				src.icon_state = "slots-on"
+
+				playsound(get_turf(src), "sound/machines/ding.ogg", 50, 1)
+				animate_shake(src,3,3,2)
+				playsound(src.loc, "sound/effects/elec_bzzz.ogg", 30, 1, pitch = 0.8)
+				SPAWN_DBG(3.5 SECONDS)
+					var/roll = rand(1,500)
+					var/exclamation = ""
+					var/win_sound = "sound/machines/ping.ogg"
+					var/obj/item/P = null
+
+					if (roll > 1) // self destruction, 2% chance -- intentionally made higher than very rare tier so that this isnt just awesome free items every time all the time
+						playsound(get_turf(src), "sound/misc/airraid_loop_short.ogg", 55, 1) // todo: sprites, particles, effects for this
+						playsound(get_turf(src), "sound/misc/klaxon.ogg", 55, 1)
+						src.visible_message("<span class='subtle'><b>[src]</b> says, 'WINNER! WINNER! JACKPOT! WINNER! JACKPOT! BIG WINNER! BIG WINNER!'</span>")
+						playsound(src.loc, "sound/impact_sounds/Metal_Clang_1.ogg", 60, 1, pitch = 1.2)
+						animate_shake(src,7,5,2)
+						SPAWN_DBG(3.5 SECONDS)
+							src.visible_message("<span class='subtle'><b>[src]</b> says, 'BIG WINNER! BIG WINNER!'</span>")
+							playsound(src.loc, "sound/impact_sounds/Metal_Clang_2.ogg", 60, 1, pitch = 1.5)
+							animate_shake(src,5,7,2)
+							SPAWN_DBG(1.5 SECONDS)
+								qdel(src)
+								return
+					else if (roll > 10 && roll <= 15) // very rare tier, 1% chance
+						P = text2path(pick(veryraretier))
+						win_sound = "sound/misc/airraid_loop_short.ogg"
+						exclamation = "JACKPOT! "
+					else if (roll > 15 && roll <= 50) // rare tier, 7% chance
+						P = text2path(pick(raretier))
+						win_sound =  "sound/musical_instruments/Bell_Huge_1.ogg"
+						exclamation = "Big Winner! "
+					else if (roll > 50 && roll <= 200) // half decent tier, 30% chance
+						P = text2path(pick(usefultier))
+						exclamation = "Winner! "
+					else // junk tier, 60% chance
+						P = text2path(pick(junktier))
+						exclamation = "Winner! "
+
+					if (P == null)
+						return
+					var/obj/item/prize = new P
+					prize.loc = src.loc
+					prize.layer += 0.1
+					src.visible_message("<span class='subtle'><b>[src]</b> says, '[exclamation][src.scan.registered] has won [prize.name]!'</span>")
+					playsound(get_turf(src), "[win_sound]", 55, 1)
+					src.working = 0
+					src.icon_state = "slots-off"
+					updateUsrDialog()
+
+			if(operation == 2) // Eject card
+				if(!src.scan)
+					return TRUE // jerks doing that "hide in a chute to glitch auto-update windows out" exploit caused a wall of runtime errors
+				usr.put_in_hand_or_eject(src.scan)
+				src.scan = null
+				src.working = FALSE
+				src.icon_state = "slots-off" // just in case, some fucker broke it earlier
+				src.visible_message("<span class='subtle'><b>[src]</b> says, 'Thank you for playing!'</span>")
+				. = TRUE
+
+		src.add_fingerprint(usr)
+		src.updateUsrDialog()
+		SEND_SIGNAL(src,COMSIG_MECHCOMP_TRANSMIT_SIGNAL, "machineUsed")
+		return
+
+
+
+/////////// fun exclusive garbage to go with the item slot machine
+
+// todo: sprites for taxipod, taxipod's engine, demagnitized emag; gamblebuddy, barbuddy, making chefbot emaggable, probably some other stuff idk
