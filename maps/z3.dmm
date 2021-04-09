@@ -25324,7 +25324,7 @@
 /obj/stool/chair/office/red{
 	dir = 1
 	},
-/turf/simulated/floor/airless/plating/scorched,
+/turf/simulated/floor/airless/damaged2,
 /area/abandonedship)
 "cAE" = (
 /obj/decal/floatingtiles{
@@ -25333,20 +25333,26 @@
 /turf/simulated/floor/airless/plating/damaged3,
 /area/abandonedship)
 "cVj" = (
-/obj/structure/brokentaxipod,
-/turf/simulated/floor/shuttlebay,
+/obj/machinery/door/poddoor/blast/pyro{
+	autoclose = 1;
+	dir = 4;
+	icon_state = "bdoormid1"
+	},
+/turf/space,
 /area/abandonedship)
 "ddi" = (
 /turf/simulated/floor/airless/damaged1,
+/area/abandonedship)
+"dnJ" = (
+/obj/decal/floatingtiles,
+/turf/space,
 /area/abandonedship)
 "dqu" = (
 /turf/simulated/floor/airless/damaged2,
 /area/abandonedship)
 "fHg" = (
-/obj/machinery/door/poddoor/blast/pyro{
-	autoclose = 1;
-	dir = 4;
-	icon_state = "bdoormid1"
+/obj/decal/floatingtiles{
+	icon_state = "floattiles2"
 	},
 /turf/space,
 /area/abandonedship)
@@ -25371,7 +25377,7 @@
 "hvz" = (
 /obj/storage/crate,
 /obj/item/taxipodengine,
-/turf/simulated/floor/airless/plating/scorched,
+/turf/simulated/floor/airless/damaged2,
 /area/abandonedship)
 "jhC" = (
 /obj/decal/floatingtiles{
@@ -25397,10 +25403,8 @@
 /turf/simulated/floor/shuttlebay,
 /area/abandonedship)
 "kwO" = (
-/obj/machinery/door/poddoor/blast/pyro{
-	autoclose = 1;
-	dir = 4;
-	icon_state = "bdoormid1"
+/obj/structure/brokentaxipod{
+	dir = 2
 	},
 /turf/simulated/floor/shuttlebay,
 /area/abandonedship)
@@ -25409,7 +25413,7 @@
 	dir = 8;
 	icon_state = "floattiles3"
 	},
-/turf/simulated/floor/airless/plating/scorched,
+/turf/simulated/floor/airless/damaged1,
 /area/abandonedship)
 "mxI" = (
 /obj/lattice{
@@ -25429,11 +25433,6 @@
 	icon_state = "aplaceholder"
 	},
 /area/abandonedship)
-"nhY" = (
-/obj/item/raw_material/shard/glass,
-/obj/captain_bottleship,
-/turf/space,
-/area/space)
 "otu" = (
 /obj/lattice{
 	icon_state = "lattice-dir"
@@ -25498,7 +25497,7 @@
 	icon_state = "datamedb";
 	name = "smashed computer"
 	},
-/turf/simulated/floor/airless/plating/scorched,
+/turf/simulated/floor/airless/damaged5,
 /area/abandonedship)
 "smD" = (
 /obj/lattice{
@@ -25555,7 +25554,7 @@
 	icon_state = "body8";
 	name = "dead pilot"
 	},
-/turf/simulated/floor/airless/plating/scorched,
+/turf/simulated/floor/airless/damaged4,
 /area/abandonedship)
 "wZY" = (
 /obj/decal/cleanable/dirt,
@@ -25583,10 +25582,8 @@
 /turf/simulated/floor/airless/plating/damaged3,
 /area/abandonedship)
 "xSa" = (
-/obj/decal/floatingtiles{
-	icon_state = "floattiles2"
-	},
-/turf/simulated/floor/airless/plating/scorched,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/airless/damaged3,
 /area/abandonedship)
 
 (1,1,1) = {"
@@ -51122,7 +51119,7 @@ aaa
 aaa
 aaa
 aaa
-nhY
+aGZ
 aaa
 aaa
 aaa
@@ -52987,7 +52984,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+auk
 aaa
 aaa
 aaa
@@ -53597,7 +53594,7 @@ aaa
 aaa
 aaa
 aaa
-auk
+aaa
 aaa
 aaa
 aaa
@@ -54206,7 +54203,7 @@ ban
 aaa
 aaa
 aaa
-aGv
+dnJ
 fHg
 aGv
 aaa
@@ -54508,8 +54505,8 @@ aaa
 aaa
 aaa
 udT
-aGv
-kjE
+rUV
+aIr
 aGv
 aaa
 aaa
@@ -56621,7 +56618,7 @@ aGw
 aGv
 oBc
 aGv
-xOx
+aGv
 aGv
 jZO
 aGv
@@ -56922,10 +56919,10 @@ aGT
 aaa
 aGv
 kjE
-aGv
-aaa
-aGv
-cVj
+kjE
+kjE
+kjE
+kjE
 aGv
 aaa
 aaa
@@ -57223,11 +57220,11 @@ aaa
 aaa
 aaa
 aGv
+kjE
 kwO
-aGv
-aaa
-aGv
-fHg
+kjE
+kjE
+kjE
 aGv
 aaa
 aaa
@@ -57524,13 +57521,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aGv
+kjE
+kjE
+kjE
+kjE
+kjE
+aGv
 aaa
 aaa
 aaa
@@ -57826,13 +57823,13 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+aGv
+cVj
+cVj
+cVj
+cVj
+cVj
+aGv
 aaa
 aaa
 aaa
