@@ -46,6 +46,9 @@
 	/datum/matfab_recipe/mining_head_blaster,
 	/datum/matfab_recipe/mining_head_pick,
 	/datum/matfab_recipe/mining_mod_conc,
+	/datum/matfab_recipe/mining_mod_star,
+	/datum/matfab_recipe/mining_mod_miracle,
+	/datum/matfab_recipe/mining_mod_lucky,
 	/datum/matfab_recipe/spacesuit)
 
 /obj/machinery/nanofab/prototype

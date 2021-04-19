@@ -97,6 +97,54 @@
 			newObj.set_loc(getOutputLocation(owner))
 		return
 
+/datum/matfab_recipe/mining_mod_star
+	name = "Tool mod (Star Blessed)"
+	desc = "A mod for mining tools. Gives a very low chance of finding a starstone in any asteroid."
+	category = "Mining Tools"
+
+	New()
+		..()
+		required_parts.Add(new/datum/matfab_part/radiocative_material {part_name = "Internal"; required_amount = 45} ())
+		required_parts.Add(new/datum/matfab_part/gemstone {part_name = "Blessing"; required_amount = 5} ())
+
+	build(amount, var/obj/machinery/nanofab/owner)
+		for(var/i=0, i<amount, i++)
+			var/obj/item/mining_mod/star/newObj = new()
+			newObj.set_loc(getOutputLocation(owner))
+		return
+
+/datum/matfab_recipe/mining_mod_miracle
+	name = "Tool mod (Miraculous)"
+	desc = "A mod for mining tools. Gives a chance of finding miracle matter in any asteroid."
+	category = "Mining Tools"
+
+	New()
+		..()
+		required_parts.Add(new/datum/matfab_part/radiocative_material {part_name = "Internal"; required_amount = 45} ())
+		required_parts.Add(new/datum/matfab_part/miracle {part_name = "Miracles"; required_amount = 20} ())
+
+	build(amount, var/obj/machinery/nanofab/owner)
+		for(var/i=0, i<amount, i++)
+			var/obj/item/mining_mod/miracle/newObj = new()
+			newObj.set_loc(getOutputLocation(owner))
+		return
+
+/datum/matfab_recipe/mining_mod_lucky
+	name = "Tool mod (Lucky)"
+	desc = "A mod for mining tools. Increases ore yield."
+	category = "Mining Tools"
+
+	New()
+		..()
+		required_parts.Add(new/datum/matfab_part/radiocative_material {part_name = "Internal"; required_amount = 45} ())
+		required_parts.Add(new/datum/matfab_part/miracle {part_name = "Luck"; required_amount = 20} ())
+
+	build(amount, var/obj/machinery/nanofab/owner)
+		for(var/i=0, i<amount, i++)
+			var/obj/item/mining_mod/lucky/newObj = new()
+			newObj.set_loc(getOutputLocation(owner))
+		return
+
 /datum/matfab_recipe/mining_head_pick
 	name = "Tool head (Pick)"
 	desc = "A Pick head. Picks have high power but no AOE."
@@ -206,12 +254,33 @@
 				newObj = new newtype(src)
 				if(istype(opt, /obj/item/mining_mod/conc))
 					newObj.blasting = 1
+				else if(istype(opt, /obj/item/mining_mod/star))
+					newObj.starblessed = 1
+				else if(istype(opt, /obj/item/mining_mod/miracle))
+					newObj.miraculous = 1
+				else if(istype(opt, /obj/item/mining_mod/lucky))
+					newObj.lucky = 1
 
 				newObj.setMaterial(mat1 = head.material, appearance = 1, setname = 1, copy = 1, use_descriptors = 0)
 
 				if(newObj.blasting)
 					newObj.remove_prefixes(99)
 					newObj.name_prefix("Blasting")
+					newObj.name_prefix(head.material.name ? head.material.name : "")
+					newObj.UpdateName()
+				else if(newObj.starblessed)
+					newObj.remove_prefixes(99)
+					newObj.name_prefix("Star Blessed")
+					newObj.name_prefix(head.material.name ? head.material.name : "")
+					newObj.UpdateName()
+				else if(newObj.miraculous)
+					newObj.remove_prefixes(99)
+					newObj.name_prefix("Miraculous")
+					newObj.name_prefix(head.material.name ? head.material.name : "")
+					newObj.UpdateName()
+				else if(newObj.lucky)
+					newObj.remove_prefixes(99)
+					newObj.name_prefix("Lucky")
 					newObj.name_prefix(head.material.name ? head.material.name : "")
 					newObj.UpdateName()
 				else if(newObj.powered)

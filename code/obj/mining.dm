@@ -943,6 +943,11 @@
 	var/mining_max_health = 120
 	var/mining_toughness = 1 //Incoming damage divided by this unless tool has power enough to overcome.
 
+	//MINING MOD EFFECTS
+	var/luckyhit = 0 //hit by lucky; so people can't get 500 ore from the same thing
+	var/starhit = 0 //hit by star blessing; very low chance to give starstone
+	var/miraclehit = 0 //hit by miraculous; good chance of getting miracle matter
+
 #ifdef UNDERWATER_MAP
 	fullbright = 0
 	luminosity = 1
@@ -1306,6 +1311,13 @@
 						MAT.quality = src.quality
 
 				MAT.name = getOreQualityName(MAT.quality) + " [MAT.name]"
+			if (src.starhit && rand(1, 1000) == 5) // seperate 1/1000 roll to get one starstone
+				var/obj/item/raw_material/starstone/BIGWIN = new /obj/item/raw_material/starstone
+				BIGWIN.set_loc(src)
+			if (src.miraclehit && rand(1, 64) == 5) // seperate 1/64 roll to get some miracle matter
+				for (var/i=rand(1,3); i > 0; i--)
+					var/obj/item/raw_material/miracle/M = new /obj/item/raw_material/miracle
+					M.set_loc(src)
 		if(!icon_old)
 			icon_old = icon_state
 

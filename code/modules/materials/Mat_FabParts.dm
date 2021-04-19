@@ -201,6 +201,18 @@
 		//if(I.material.getProperty("fissile") < 30) return 0
 		//if(!I.material.nuke_compat) return 0
 		return ..()
+
+/datum/matfab_part/miracle
+	name = "Miracle Matter"
+	checkMatch(var/obj/item/I)
+		if(!I.material || (I.material.mat_id != "miracle")) return 0
+		return ..()
+
+/datum/matfab_part/gemstone
+	name = "Any Gemstone"
+	checkMatch(var/obj/item/I)
+		if(!istype(I, /obj/item/raw_material/gemstone) && !istype(I.material, /datum/material/crystal/gemstone)) return 0
+		return ..()
 //////////////////////////////////////////////BASE CLASS BELOW
 
 /// Base material fabrication part

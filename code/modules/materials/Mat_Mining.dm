@@ -36,6 +36,21 @@
 		desc = "A mod for mining tools. Increases AOE."
 		icon_state = "mod_conc"
 
+	star
+		name = "Star Blessed Mining Mod"
+		desc = "A mod for mining tools. Gives a very low chance of finding a starstone in any asteroid."
+		icon_state = "mod_conc"
+
+	miracle
+		name = "Miraculous Mining Mod"
+		desc = "A mod for mining tools. Gives a chance of finding miracle matter in any asteroid."
+		icon_state = "mod_conc"
+
+	lucky
+		name = "Lucky Mining Mod"
+		desc = "A mod for mining tools. Increases ore yield."
+		icon_state = "mod_conc"
+
 /obj/item/mining_tools
 	name = "mining tool"
 	desc = "A simple mining tool."
@@ -45,6 +60,9 @@
 	item_state = "ppick"
 
 	var/blasting = 0 //Small Aoe damage around normal hit tiles.
+	var/starblessed = 0 //Very small chance to find starstone in ores.
+	var/miraculous = 0 //Chance to find miracle matter in ores.
+	var/lucky = 0 //More ore from asteroids.
 	var/powered = 0 //Undecided.
 
 	var/power = 5 //Damage to asteroid tiles.
@@ -123,6 +141,13 @@
 
 		if(istype(start,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/A = start
+			if(lucky && !A.luckyhit)
+				A.luckyhit = 1
+				A.amount += 1
+			if(starblessed && !A.starhit)
+				A.starhit = 1
+			if(miraculous && !A.miraclehit)
+				A.miraclehit = 1
 			A.change_health(-power)
 		return
 
@@ -196,15 +221,43 @@
 
 		if(istype(start,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/A = start
+			if(lucky && !A.luckyhit)
+				A.luckyhit = 1
+				A.amount += 1
+			if(starblessed && !A.starhit)
+				A.starhit = 1
+			if(miraculous && !A.miraclehit)
+				A.miraclehit = 1
 			A.change_health(-power)
 		if(istype(TC,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/B = TC
+			if(lucky && !B.luckyhit)
+				B.luckyhit = 1
+				B.amount += 1
+			if(starblessed && !B.starhit)
+				B.starhit = 1
+			if(miraculous && !B.miraclehit)
+				B.miraclehit = 1
 			B.change_health(-power)
 		if(istype(TA,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/C = TA
+			if(lucky && !C.luckyhit)
+				C.luckyhit = 1
+				C.amount += 1
+			if(starblessed && !C.starhit)
+				C.starhit = 1
+			if(miraculous && !C.miraclehit)
+				C.miraclehit = 1
 			C.change_health(-power)
 		if(istype(TB,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/D = TB
+			if(lucky && !D.luckyhit)
+				D.luckyhit = 1
+				D.amount += 1
+			if(starblessed && !D.starhit)
+				D.starhit = 1
+			if(miraculous && !D.miraclehit)
+				D.miraclehit = 1
 			D.change_health(-power)
 		return
 
@@ -256,12 +309,33 @@
 
 		if(istype(start,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/A = start
+			if(lucky && !A.luckyhit)
+				A.luckyhit = 1
+				A.amount += 1
+			if(starblessed && !A.starhit)
+				A.starhit = 1
+			if(miraculous && !A.miraclehit)
+				A.miraclehit = 1
 			A.change_health(-power)
 		if(istype(middle,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/B = middle
+			if(lucky && !B.luckyhit)
+				B.luckyhit = 1
+				B.amount += 1
+			if(starblessed && !B.starhit)
+				B.starhit = 1
+			if(miraculous && !B.miraclehit)
+				B.miraclehit = 1
 			B.change_health(-power)
 		if(istype(end,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/C = end
+			if(lucky && !C.luckyhit)
+				C.luckyhit = 1
+				C.amount += 1
+			if(starblessed && !C.starhit)
+				C.starhit = 1
+			if(miraculous && !C.miraclehit)
+				C.miraclehit = 1
 			C.change_health(-power)
 		return
 
@@ -326,12 +400,33 @@
 
 		if(istype(start,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/A = start
+			if(lucky && !A.luckyhit)
+				A.luckyhit = 1
+				A.amount += 1
+			if(starblessed && !A.starhit)
+				A.starhit = 1
+			if(miraculous && !A.miraclehit)
+				A.miraclehit = 1
 			A.change_health(-power)
 		if(istype(middle,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/B = middle
+			if(lucky && !B.luckyhit)
+				B.luckyhit = 1
+				B.amount += 1
+			if(starblessed && !B.starhit)
+				B.starhit = 1
+			if(miraculous && !B.miraclehit)
+				B.miraclehit = 1
 			B.change_health(-power)
 		if(istype(end,/turf/simulated/wall/asteroid))
 			var/turf/simulated/wall/asteroid/C = end
+			if(lucky && !C.luckyhit)
+				C.luckyhit = 1
+				C.amount += 1
+			if(starblessed && !C.starhit)
+				C.starhit = 1
+			if(miraculous && !C.miraclehit)
+				C.miraclehit = 1
 			C.change_health(-power)
 
 		return
