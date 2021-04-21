@@ -2048,6 +2048,15 @@ proc/get_nice_mat_name_for_manufacturers(mat)
 	create = 1
 	category = "Clothing"
 
+/datum/manufacture/monke
+	name = "Ook's Bag of Wisdom"
+	item_paths = list("FAB-1")
+	item_amounts = list(4)
+	item_outputs = list(/obj/item/clothing/head/monke)
+	time = 5 SECONDS
+	create = 1
+	category = "Clothing"
+
 /datum/manufacture/pride_lgbt
 	name = "LGBT Pride Jumpsuit"
 	item_paths = list("FAB-1")
