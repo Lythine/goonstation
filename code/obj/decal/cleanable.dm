@@ -327,6 +327,8 @@ proc/make_cleanable(var/type,var/loc,var/list/viral_list)
 						H.shoes.add_blood(src)
 						H.set_clothing_icon_dirty()
 				if (H.m_intent != "walk")
+					if (H.shoes && H.shoes.hydrophobic)
+						return
 					src.add_tracked_blood(H)
 			else if (isliving(AM))// || isobj(AM))
 				AM.add_blood(src)

@@ -63,7 +63,7 @@
 		src.name = "[name_prefix(null, 1)][src.get_stains()][src.real_name ? src.real_name : initial(src.name)][name_suffix(null, 1)]"
 
 	proc/add_stain(var/stn)
-		if (!stn || !src.can_stain)
+		if (!stn || !src.can_stain || src.hydrophobic)
 			return
 		if (!islist(src.stains))
 			src.stains = list()

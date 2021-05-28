@@ -3883,3 +3883,11 @@ datum
 			mix_phrase = "The mixture comes together slowly. It doesn't seem like it wants to be here."
 			required_reagents = list("poor_cement" = 1, "silicon_dioxide" = 5, "water" = 1)
 			result_amount = 7
+
+		hydrophobe
+			name = "Durable Liquid Repellent"
+			id = "hydrophobe"
+			result = "hydrophobe"
+			required_reagents = list("silicon" = 1, "oxygen" = 2, "fluorosurfactant" = 1)
+			result_amount = 3
+			mix_phrase = "The mixture bubbles slightly, then settles."

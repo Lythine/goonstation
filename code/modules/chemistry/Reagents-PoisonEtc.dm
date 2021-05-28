@@ -100,7 +100,12 @@ datum
 					return 1
 				if (istype(O,/obj/item/clothing/head/chemhood || /obj/item/clothing/suit/chemsuit))
 					return 1
-				if (isitem(O) && prob(40))
+				if (isitem(O))
+					var/obj/item/I = O
+					if (I.hydrophobic)
+						I.hydrophobic = 0
+						I.visible_message("The acidic substance removes the hydrophobic coating from \the [O].")
+					else if (prob(40))
 					var/obj/item/toMelt
 					if (!(toMelt.item_function_flags & IMMUNE_TO_ACID))
 						var/obj/decal/cleanable/molten_item/I = make_cleanable(/obj/decal/cleanable/molten_item,O.loc)

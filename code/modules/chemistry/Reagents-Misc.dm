@@ -1070,6 +1070,11 @@ datum
 
 			reaction_obj(var/obj/O, var/volume)
 				if (!isnull(O))
+					if (istype(O, /obj/item))
+						var/obj/item/I = O
+						if (I.hydrophobic)
+							I.visible_message("The liquid uselessly slides off of the [I]!")
+							return
 					O.clean_forensic()
 
 			reaction_turf(var/turf/T, var/volume)
@@ -3771,6 +3776,22 @@ datum
 			fluid_r = 112
 			fluid_b = 40
 			fluid_g = 9
+
+		hydrophobe
+			name = "durable liquid repellent"
+			id = "hydrophobe"
+			description = "A durable coating that makes objects repel liquids."
+			reagent_state = LIQUID
+			fluid_r = 170
+			fluid_g = 179
+			fluid_b = 243
+			transparency = 130
+
+			reaction_obj(var/obj/O, var/volume)
+				if (!isnull(O) && isitem(O))
+					var/obj/item/I = O
+					I.hydrophobic = 1
+					I.visible_message("You coat the [O] in the liquid repellent.")
 
 		//=-=-=-=-=-=-=-=-=
 		//|| C E M E N T ||

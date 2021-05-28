@@ -129,6 +129,8 @@
 	if (!( src.blood_DNA ))
 		if (isitem(src))
 			var/obj/item/I = src
+			if (I.hydrophobic)
+				return
 			#ifdef OLD_BLOOD_OVERLAY
 			var/icon/new_icon
 			if (I.uses_multiple_icon_states)
